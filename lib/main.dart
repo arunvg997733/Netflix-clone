@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:netflix/core/colors/colors.dart';
+import 'package:netflix/presentation/main_page/screen_main_page.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -10,10 +13,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue
+        fontFamily: GoogleFonts.montserrat().fontFamily,
+        primarySwatch: Colors.blue,
+        textTheme: TextTheme(
+          bodySmall: TextStyle(color: Colors.white),
+          bodyMedium: TextStyle(color: Colors.white),
+          bodyLarge: TextStyle(color: Colors.white),
+          ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+        scaffoldBackgroundColor: backgroundcolor
+        
       ),
-      home: ,
+      home: ScreenMainPage(),
     );
   }
 }
