@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/constant.dart';
 import 'package:netflix/presentation/search/widgets/title.dart';
+import 'package:netflix/presentation/widgets/main_card.dart';
 
 class SearchResultWidget extends StatelessWidget {
   const SearchResultWidget({super.key});
@@ -20,7 +21,7 @@ class SearchResultWidget extends StatelessWidget {
             childAspectRatio: 1/1.4,
             crossAxisCount: 3,
             children: List.generate(20, (index) {
-              return MainCard();
+              return MainCardSearch();
             })
             ),
         )
@@ -31,8 +32,8 @@ class SearchResultWidget extends StatelessWidget {
 }
 
 
-class MainCard extends StatelessWidget {
-  const MainCard({super.key});
+class MainCardSearch extends StatelessWidget {
+  const MainCardSearch({super.key});
 
   @override
   Widget build(BuildContext context) {

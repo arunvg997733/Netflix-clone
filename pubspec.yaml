@@ -28,10 +28,12 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  bordered_text: ^2.0.0
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   google_fonts: ^4.0.5
+  ios_keyboard_action: ^0.0.7
   video_player: ^2.6.1
 
 dev_dependencies:
@@ -52,6 +54,7 @@ flutter:
     - assets/download image 1.jpg
     - assets/download image 2.jpg
     - assets/download image 3.jpg
+    - assets/netflix logo.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
