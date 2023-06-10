@@ -11,68 +11,71 @@ class ScreenNewandHot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    return  DefaultTabController(
+    return DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar: PreferredSize( preferredSize:const Size.fromHeight(90),child: AppBar(
-          title: 
-          const Text('New & Hot',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
-          actions: [
-            IconButton(onPressed: () {
-      
-          }, icon: const Icon(Icons.cast,color: Colors.white,size: 30,)),
-          kwidgt,
-          Container(
-            width: 30,
-            height: 10,
-            color: Colors.blue,
-          ),
-          kwidgt
-    
-          ],
-          bottom: TabBar(
-            indicator: BoxDecoration(
-              color: kwhite,
-              borderRadius: kborderradius30
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(90),
+          child: AppBar(
+            title: const Text(
+              'New & Hot',
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
-            labelColor: kblack,
-            isScrollable: true,
-            unselectedLabelColor: kwhite,
-            labelStyle: const TextStyle(fontSize: 12,fontWeight: FontWeight.bold),
-            tabs:const[
-            Tab(text: '🍿 Coming Soon',),
-            Tab(text: "👀 Everyone's Watching")
-          ],
+            actions: [
+              IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.cast,
+                    color: Colors.white,
+                    size: 30,
+                  )),
+              kwidgt,
+              Container(
+                width: 30,
+                height: 10,
+                color: Colors.blue,
+              ),
+              kwidgt
+            ],
+            bottom: TabBar(
+              indicator:
+                  BoxDecoration(color: kwhite, borderRadius: kborderradius30),
+              labelColor: kblack,
+              isScrollable: true,
+              unselectedLabelColor: kwhite,
+              labelStyle:
+                  const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+              tabs: const [
+                Tab(
+                  text: '🍿 Coming Soon',
+                ),
+                Tab(text: "👀 Everyone's Watching")
+              ],
+            ),
           ),
-        ), ),
+        ),
         body: TabBarView(
-          children: [
-            _build_ComingSoon(),
-            _build_EveryonesWatching()
-          ],
+          children: [_build_ComingSoon(), _build_EveryonesWatching()],
         ),
       ),
     );
   }
 }
 
-Widget _build_ComingSoon(){
-  
+Widget _build_ComingSoon() {
   return ListView.builder(
     itemCount: 10,
     itemBuilder: (context, index) {
-    return const ComingSoonWidget();
-  },);
+      return  ComingSoonWidget(index: index,);
+    },
+  );
 }
 
-Widget _build_EveryonesWatching(){
+Widget _build_EveryonesWatching() {
   return ListView.builder(
-    itemCount: 10,
+    itemCount: 50,
     itemBuilder: (context, index) {
-    return EveryonesWatching();
-  },);
+      return EveryonesWatching(index: index,);
+    },
+  );
 }
-
-
-

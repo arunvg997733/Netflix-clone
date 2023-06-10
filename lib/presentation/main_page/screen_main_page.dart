@@ -7,7 +7,7 @@ import 'package:netflix/presentation/new_and_hot/screen_new_and_hot.dart';
 import 'package:netflix/presentation/search/screen_search.dart';
 
 class ScreenMainPage extends StatelessWidget {
-   ScreenMainPage({super.key});
+  ScreenMainPage({super.key});
 
   List pages = [
     ScreenHome(),
@@ -19,14 +19,15 @@ class ScreenMainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-
+    return Scaffold(
       body: SafeArea(
-        child: ValueListenableBuilder(valueListenable: currentindexnotifier, builder: (context, int index, child) {
-          return pages[index];
-        },),
+        child: ValueListenableBuilder(
+          valueListenable: currentindexnotifier,
+          builder: (context, int index, child) {
+            return pages[index];
+          },
+        ),
       ),
-       
       bottomNavigationBar: BottomNavigationWidget(),
     );
   }

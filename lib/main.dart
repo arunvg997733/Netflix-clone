@@ -12,21 +12,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        appBarTheme: AppBarTheme(backgroundColor: Colors.transparent),
-        fontFamily: GoogleFonts.montserrat().fontFamily,
-        primarySwatch: Colors.blue,
-        textTheme: TextTheme(
-          bodySmall: TextStyle(color: Colors.white),
-          bodyMedium: TextStyle(color: Colors.white),
-          bodyLarge: TextStyle(color: Colors.white),
+          appBarTheme: AppBarTheme(backgroundColor: Colors.transparent),
+          fontFamily: GoogleFonts.montserrat().fontFamily,
+          primarySwatch: Colors.blue,
+          textTheme: TextTheme(
+            bodySmall: TextStyle(color: Colors.white),
+            bodyMedium: TextStyle(color: Colors.white),
+            bodyLarge: TextStyle(color: Colors.white),
           ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
-        scaffoldBackgroundColor: backgroundcolor
-        
-      ),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+          scaffoldBackgroundColor: backgroundcolor),
       home: ScreenMainPage(),
     );
   }

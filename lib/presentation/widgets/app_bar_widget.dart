@@ -1,30 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/constant.dart';
 
-
 class AppBarWidget extends StatelessWidget {
-   AppBarWidget({super.key,required this.title});
+  AppBarWidget({super.key, required this.title});
 
-  String title ;
-
+  String title;
 
   @override
   Widget build(BuildContext context) {
-
     final screensize = MediaQuery.of(context).size;
-    return  Row(
+    return Row(
       children: [
         kwidgt,
-        Text(title,
-        style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+        Text(
+          title,
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        ),
         Spacer(),
-        IconButton(onPressed: () {
-  
-        }, icon: Icon(Icons.cast,color: Colors.white,size: 30,)),
+        IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.cast,
+              color: Colors.white,
+              size: 30,
+            )),
         kwidgt,
         Container(
-          width: screensize.width*.1,
-          height: screensize.width*.1,
+          width: screensize.width * .1,
+          height: screensize.width * .1,
           color: Colors.blue,
         ),
         kwidgt
