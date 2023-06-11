@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/api/southindianmovies/south_indian_movies/result.dart';
 import 'package:netflix/api/southindianmovies/southindianmovies.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constant.dart';
 import 'package:netflix/presentation/home/custom_button.dart';
 import 'package:netflix/presentation/widgets/video_widget.dart';
+
+
 
 class ComingSoonWidget extends StatelessWidget {
    ComingSoonWidget({
@@ -11,6 +14,7 @@ class ComingSoonWidget extends StatelessWidget {
     required this.index
   });
   int index;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +22,7 @@ class ComingSoonWidget extends StatelessWidget {
     return FutureBuilder(
       future: getsouthindianmoviesdata(),
       builder: (context, snapshot) {
+        String? date = snapshot.data![index].releaseDate;
       if(snapshot.connectionState == ConnectionState.waiting){
         return SizedBox(
           height: 420,
@@ -26,7 +31,7 @@ class ComingSoonWidget extends StatelessWidget {
         return Row(
       children: [
         SizedBox(
-          width: 50,
+          width: 55,
           height: 420,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -36,7 +41,7 @@ class ComingSoonWidget extends StatelessWidget {
                 style: TextStyle(color: kgrey1),
               ),
               Text(
-                '11',
+                date![8]+date[9],
                 style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
@@ -46,7 +51,7 @@ class ComingSoonWidget extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: screensize.width - 50,
+          width: screensize.width - 55,
           height: 420,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,7 +112,8 @@ class ComingSoonWidget extends StatelessWidget {
         ),
       ],
     );
-      }
-    },);
+    }
+    },
+    );
   }
 }

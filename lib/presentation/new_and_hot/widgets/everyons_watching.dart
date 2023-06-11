@@ -60,7 +60,8 @@ class EveryonesWatching extends StatelessWidget {
             ),
             kwidgt
           ],
-        )
+        ),
+        kheight
       ],
     );
       }

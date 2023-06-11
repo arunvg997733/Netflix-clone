@@ -31,9 +31,11 @@ class ScreenNewandHot extends StatelessWidget {
                   )),
               kwidgt,
               Container(
-                width: 30,
-                height: 10,
-                color: Colors.blue,
+                width: 35,
+                height: 35,
+                decoration:const  BoxDecoration(
+                  image: DecorationImage(image: AssetImage('assets/user emoji.jpg'))
+                  ),
               ),
               kwidgt
             ],

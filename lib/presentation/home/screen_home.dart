@@ -106,7 +106,9 @@ class ScreenHome extends StatelessWidget {
                               Container(
                                 width: screensize.width * .1,
                                 height: screensize.width * .1,
-                                color: Colors.blue,
+                                decoration:const  BoxDecoration(
+                                  image: DecorationImage(image: AssetImage('assets/user emoji.jpg'))
+                                ),
                               ),
                               kwidgt
                             ],

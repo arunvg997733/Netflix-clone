@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/core/constant.dart';
+import 'package:netflix/api/api_constant.dart';
+import 'package:netflix/api/trendingmovies/trending_movies/result.dart';
+import 'package:netflix/api/trendingmovies/trendingmoivies.dart';
 
 class VideoListItem extends StatelessWidget {
   VideoListItem({super.key, required this.index});
@@ -11,7 +13,18 @@ class VideoListItem extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          color: Colors.accents[index % Colors.accents.length],
+          height: double.infinity,
+          // color: Colors.accents[index % Colors.accents.length],
+          child: FutureBuilder(
+            future: gettrendingmoviesdata(),
+            builder: (context, snapshot) {
+            if(snapshot.connectionState == ConnectionState.waiting){
+              return Center(child: CircularProgressIndicator());
+
+            }else{
+              return Image.network(baseurl+snapshot.data![index].posterPath!,fit:BoxFit.cover,);
+            }
+          },),
         ),
         Align(
           alignment: Alignment.bottomCenter,
@@ -32,11 +45,16 @@ class VideoListItem extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: CircleAvatar(
+                      child: FutureBuilder(
+                        future: gettrendingmoviesdata(),
+                        builder: (context, snapshot) {
+                        return CircleAvatar(
                         radius: 25,
                         backgroundImage:
-                            AssetImage('assets/download image 1.jpg'),
-                      ),
+                        AssetImage('assets/download image 1.jpg'),
+                        // NetworkImage(baseurl+snapshot.data![index].posterPath!),
+                      );
+                      },)
                     ),
                     VideoActionWidget(icon: Icons.emoji_emotions, title: 'LOL'),
                     VideoActionWidget(icon: Icons.add, title: 'My List'),
