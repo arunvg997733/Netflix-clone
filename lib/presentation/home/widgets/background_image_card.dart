@@ -1,24 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/api/api_constant.dart';
+import 'package:netflix/api/trendingmovies/trending_movies/result.dart';
 import 'package:netflix/api/trendingmovies/trendingmoivies.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/presentation/home/custom_button.dart';
 
-class BackgroundImageCard extends StatelessWidget {
+class BackgroundImageCard extends StatefulWidget {
   const BackgroundImageCard({
     super.key,
   });
 
   @override
+  State<BackgroundImageCard> createState() => _BackgroundImageCardState();
+}
+
+class _BackgroundImageCardState extends State<BackgroundImageCard> {
+
+  late Future<List<Result>> futuredata;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    futuredata = gettrendingmoviesdata();
+  }
+  @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         FutureBuilder(
-          future: gettrendingmoviesdata(),
+          future: futuredata,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(child: CircularProgressIndicator());
-            } else {
+            }else if(snapshot.hasError){
+              final error =snapshot.error;
+              return Container(width: double.infinity,
+                height: 600,
+                child: Center(child: Text(error.toString())));
+            }
+             else {
               return Container(
                 width: double.infinity,
                 height: 600,

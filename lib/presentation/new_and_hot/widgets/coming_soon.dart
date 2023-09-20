@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/api/southindianmovies/south_indian_movies/result.dart';
-import 'package:netflix/api/southindianmovies/southindianmovies.dart';
+import 'package:netflix/api/trendingmovies/trendingmoivies.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constant.dart';
 import 'package:netflix/presentation/home/custom_button.dart';
@@ -20,7 +19,7 @@ class ComingSoonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final screensize = MediaQuery.of(context).size;
     return FutureBuilder(
-      future: getsouthindianmoviesdata(),
+      future:gettrendingmoviesdata() ,
       builder: (context, snapshot) {
         String? date = snapshot.data![index].releaseDate;
       if(snapshot.connectionState == ConnectionState.waiting){

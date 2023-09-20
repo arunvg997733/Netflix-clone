@@ -66,7 +66,7 @@ class ScreenNewandHot extends StatelessWidget {
 
 Widget _build_ComingSoon() {
   return ListView.builder(
-    itemCount: 10,
+    itemCount: 50,
     itemBuilder: (context, index) {
       return  ComingSoonWidget(index: index,);
     },

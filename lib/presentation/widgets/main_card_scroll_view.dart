@@ -25,6 +25,12 @@ class MainCardScrollView extends StatelessWidget {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(child: CircularProgressIndicator());
                 }
+                else if(snapshot.hasError){
+                 final error =snapshot.error;
+                 return Container(width: double.infinity,
+                  height: 600,
+                child: Center(child: Text(error.toString())));
+            }
                 // else if(snapshot.connectionState == ConnectionState.done){
                 //   return Column(
                 //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,

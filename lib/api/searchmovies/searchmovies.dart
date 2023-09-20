@@ -8,6 +8,6 @@ Future<void>searchmoviesdata(String search)async{
   if(response.statusCode == 200){
     final data = jsonDecode(response.body);
     final searchmoviesdata = SearchMovies.fromJson(data);
-    searchlistnotifier.value = searchmoviesdata.results!;
+    searchlistnotifier.value = searchmoviesdata.results!; 
   }
 }
